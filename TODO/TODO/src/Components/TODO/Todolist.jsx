@@ -1,22 +1,19 @@
 import React from "react";
-import { useSelector } from "react-redux";
 
-const TodoList = () => {
+import axios from "axios";
 
-    //const state = useSelector((state) =>state.todos)  write in this manner
-    const todos = useSelector((state ) =>state.todos)
+const TodoList = (title) => {
 
+    const config ={
+        method : "post",
+        data : {
+           title
+        },
+        url : "http://localhost:3030/"
+    };
 
-        console.log(todos);
-       
-    return(
-        <div>
-            <h3>Add List</h3>
-            <div>{todos.map(item =>
-            <div key={item.id}>{item.title}</div>)}
-            </div>
-        </div>
-    )
+    return axios(config);
+
 }
 
 

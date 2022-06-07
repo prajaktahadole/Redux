@@ -3,15 +3,12 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import {v4 as uuid} from "uuid";
 import {addTodo} from "../../Redux/action"
-import {TodoList} from "./Todolist"
-
 const TodoInput = () => {
 
     const [title, setTitle] = useState("");
     const dispatch = useDispatch();
 
     const handleAdd = () =>{
-        TodoList(title);
         const payload = {
             title,
             status : false,
