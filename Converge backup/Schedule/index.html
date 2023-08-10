@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+ 
+  <button type="button" class="btn btn-dark rounded-0" data-toggle="modal" data-target="#myModal">Schedule</button>
+
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+         <div class="modal-header">
+        <h3 class="modal-title fw-600" id="exampleModalLongTitle">Not sure what to do?</h3>
+        <p>Pick a time to schedule an interview with TeamCast representative.</p>
+
+        <p>Showing timings in</p>
+
+        <div class="d-flex">
+            <div>  
+                <a href="webcal://domain.com/path/calendar.ics"></a>
+                <input type="date" id="dateInput" name="dateInput" value="yyyy-MM-dd">
+                <table id="calendar-demo" class="calendar"></table>
+            <div> block 2</div>
+        </div>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+      
+      </div>
+      
+    </div>
+  </div>
+  
+  
+</div>
+
+</body>
+</html>
+<script>
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = (today.getMonth() + 1).toString().padStart(2, '0');
+    const day = '01'; // Setting day to 01 will default to the first day of the month
+    document.getElementById('dateInput').value = `${year}-${month}-${day}`;
+  </script>

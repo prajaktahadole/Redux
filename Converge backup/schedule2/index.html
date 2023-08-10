@@ -1,0 +1,182 @@
+{% extends 'common/layouts/base_fullscreen.html' %}
+{% load static %}
+
+{% block content %}
+
+{% block css_plugins %}
+
+{% endblock css_plugins %}
+
+<!-- Specific CSS Plugins goes HERE  -->
+{% block stylesheets %}
+
+<style>
+
+	body {
+	    margin-bottom: 4px;
+		margin-top: 4px;
+		text-align: center;
+		font-size: 14px;
+		background:url(http://www.digiphotohub.com/wp-content/uploads/2015/09/bigstock-Abstract-Blurred-Background-Of-92820527.jpg);
+		}
+
+	#external-events p {
+		margin: 1.5em 0;
+		font-size: 11px;
+		color: #666;
+		}
+
+	#external-events p input {
+		margin: 0;
+		vertical-align: middle;
+		}
+
+	#calendar {
+
+        margin: 0 auto;
+		width: 250px;
+		background-color: #FFFFFF;
+		  border-radius: 6px;
+        box-shadow: 0 1px 2px #C3C3C3;
+		-webkit-box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18);
+-moz-box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18);
+box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18);
+		}
+
+</style>
+
+{% endblock stylesheets %}
+
+
+<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Schedule
+</button>
+
+
+<div class="col-md-6">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header row">
+        <h5 class="modal-title" id="exampleModalLabel">Not sure what to do?</h5>
+          <p>Pick a time to schedule an interview with TeamCast representative.</p>
+          <div class="d-flex">
+              <p>Showing timings in</p>
+              <div class="w-15 border-0">
+                  <select class="form-select form-select-sm border-0" >
+                  <option value="1">IST</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                  </select>
+              </div>
+          </div>
+      </div>
+
+      <div class="modal-body d-flex ">
+            <div class="w-50">
+                <h6>Select a date</h6>
+
+                     <div id='wrap'>
+                        <div id='calendar'></div>
+                   </div>
+
+            </div>
+            <div class="w-50">
+                 <h6>Pick a timeslot</h6>
+                <div class="d-flex gap-2 flex-wrap">
+                    <div class="w-35 border rounded p-1"> 12:30 PM</div>
+                    <div class="w-35 border rounded p-1"> 12:30 PM</div>
+                    <div class="w-35 border rounded p-1"> 12:30 PM</div>
+                    <div class="w-35 border rounded p-1"> 12:30 PM</div>
+                    <div class="w-40 border rounded p-1"> 12:30 PM</div>
+                    <div class="w-40 border rounded p-1"> 12:30 PM</div>
+                    <div class="w-40 border rounded p-1"> 12:30 PM</div>
+                </div>
+            </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-white" data-bs-dismiss="modal">Cancle</button>
+        <button type="button" class="btn btn-dark">Confirm</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+
+<script>
+
+	$(document).ready(function() {
+	    var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+
+		var calendar =  $('#calendar').fullCalendar({
+			header: {
+				left: 'title',
+				center: 'agendaDay,agendaWeek,month',
+				right: 'prev,next today'
+			},
+			editable: true,
+			firstDay: 1, //  1(Monday) this can be changed to 0(Sunday) for the USA system
+			selectable: true,
+			defaultView: 'month',
+
+			axisFormat: 'h:mm',
+			columnFormat: {
+                month: 'ddd',    // Mon
+                week: 'ddd d', // Mon 7
+                day: 'dddd M/d',  // Monday 9/7
+                agendaDay: 'dddd d'
+            },
+            titleFormat: {
+                month: 'MMMM yyyy', // September 2009
+                week: "MMMM yyyy", // September 2009
+                day: 'MMMM yyyy'                  // Tuesday, Sep 8, 2009
+            },
+			allDaySlot: false,
+			selectHelper: true,
+			select: function(start, end, allDay) {
+				var title = prompt('Event Title:');
+				if (title) {
+					calendar.fullCalendar('renderEvent',
+						{
+							title: title,
+							start: start,
+							end: end,
+							allDay: allDay
+						},
+						true // make the event "stick"
+					);
+				}
+				calendar.fullCalendar('unselect');
+			},
+
+			events: [
+				{
+					title: 'All Day Event',
+					start: new Date(y, m, 1)
+				},
+				{
+					id: 999,
+					title: 'Repeating Event',
+					start: new Date(y, m, d-3, 16, 0),
+					allDay: false,
+					className: 'info'
+				},
+
+			],
+		});
+
+
+	});
+
+</script>
+
+{% endblock scripts %}

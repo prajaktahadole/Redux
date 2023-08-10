@@ -1,0 +1,178 @@
+{% extends "common/layouts/team_cast_fullscreen.html" %}
+{% load static %}
+{% load ui_tags %}
+
+
+{% block title %} Compose Team {% endblock %}
+
+<!-- Specific CSS Plugins goes HERE  -->
+{% block css_plugins %}
+
+{% endblock css_plugins %}
+
+<!-- Specific CSS Plugins goes HERE  -->
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'build_team/build_yourself/ion.rangeSlider.min.css' %}">
+<link rel="stylesheet" href="{% static 'build_team/build_yourself/build_yourself.css' %}">
+{% endblock stylesheets %}
+
+{% block content %}
+
+
+<style>
+
+::-webkit-scrollbar {
+    width: 10px
+}
+
+::-webkit-scrollbar-track {
+    background: #eee
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555
+}
+
+
+.main {
+    background-color: #eee;
+    position: relative;
+    border-radius: 8px;
+    padding: 6px 0px 0px 0px
+}
+
+.scroll {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    height: 325px
+}
+</style>
+
+
+<div class="container container-div">
+    <div class="row" id="hc-image-icon">
+        <div class="col py-0">
+            {% include 'common/includes/messages_bg.html' %}
+        </div>
+    </div>
+
+     <div class="row">
+
+
+         <div class="border rounded bg-white main" style="height: 85vh">
+
+
+             <div class="card-header d-flex border-bottom mb-3 align-items-center p-3">
+                 <img src="http://bit.ly/3YvHeU6" width="50"  />
+                 <h5 class="pt-2">HC Ai</h5>
+           </div>
+
+
+
+             <div  style="height: 65vh; position: relative" class="px-2 scroll" >
+
+
+                 <div class="d-flex flex-row justify-content-start">
+                  <img src="http://bit.ly/3YvHeU6"
+                    alt="avatar 1" style="width: 50px; height: 100%;">
+                  <div>
+                    <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: black; color : white">Hi there, </p>
+                    <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: black; color : white">I'm excited to find amazing developers for you!
+                    </p>
+                    <p class="small ms-3 mb-3 rounded-3 text-muted">23:58</p>
+                  </div>
+                </div>
+
+                 <div class="d-flex flex-row justify-content-end mb-4 pt-1">
+                  <div>
+                    <p class="small p-2 me-3 mb-1 text-black rounded-3"  style="background-color: #f5f6f7;">Hiii,</p>
+                    <p class="small p-2 me-3 mb-1 text-black rounded-3"  style="background-color: #f5f6f7;">I'm looking for a Senior front-end engineer experienced in React, Next.js, and CSS</p>
+                    <p class="small p-2 me-3 mb-1 text-black rounded-3"  style="background-color: #f5f6f7;">Can you show me some resources? .</p>
+                    <p class="small me-3 mb-3 rounded-3 text-muted d-flex justify-content-end">00:06</p>
+                  </div>
+                  <img src="/static/common/img/logos/avatar-pp.png"
+                       class="rounded-circle"
+                    alt="avatar 1" style="width: 35px; height: 100%;">
+               </div>
+
+
+
+
+                 <div class="d-flex flex-row justify-content-start">
+                  <img src="http://bit.ly/3YvHeU6"
+                    alt="avatar 1" style="width: 50px; height: 100%;">
+                  <div>
+
+                    <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: black; color : white">Humanccloud offers the best hiring solutions.
+                        We’ve selected some resources for you. Here you go!
+                    </p>
+                    <p class="small ms-3 mb-3 rounded-3 text-muted">00:08</p>
+                      <button class="btn btn-dark rad mt-2 m-2 ">View Resources </button>
+
+                  </div>
+                </div>
+
+
+                 <div class="d-flex flex-row justify-content-end mb-4 pt-1">
+                  <div>
+
+                    <p class="small p-2 me-3 mb-1 text-black rounded-3"  style="background-color: #f5f6f7;">I'm looking for a Senior front-end engineer experienced in React, Next.js, and CSS</p>
+                    <p class="small p-2 me-3 mb-1 text-black rounded-3"  style="background-color: #f5f6f7;">Can you show me some resources? .</p>
+                    <p class="small me-3 mb-3 rounded-3 text-muted d-flex justify-content-end">01:06</p>
+                  </div>
+                  <img src="/static/common/img/logos/avatar-pp.png"
+                       class="rounded-circle"
+                    alt="avatar 1" style="width: 35px; height: 100%;">
+               </div>
+
+
+                  <div class="d-flex flex-row justify-content-start">
+                  <img src="http://bit.ly/3YvHeU6"
+                    alt="avatar 1" style="width: 50px; height: 100%;">
+                  <div>
+
+                    <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: black; color : white">Humanccloud offers the best hiring solutions.
+                        We’ve selected some resources for you. Here you go!
+                    </p>
+                    <p class="small ms-3 mb-3 rounded-3 text-muted">01:08</p>
+                  </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="border p-1 d-flex justify-content-between">
+                   <div class="d-flex justify-content-center p-1">
+                       <div class=" m-auto"> <i class="fa fa-paperclip attachment" aria-hidden="true"></i></div>
+                       <input type="text"  class="border-0" placeholder="Write your message..." />
+                    </div>
+                <button class="btn btn-dark rad mt-2 submit ">Send<i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+            </div>
+
+         </div>
+
+     </div>
+
+
+
+
+</div>
+
+{% endblock content %}
+
+<!-- Specific JS Plugins goes HERE  -->
+{% block js_plugins %}
+
+{% endblock js_plugins %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script src="{% static 'build_team/build_yourself/ion.rangeSlider.min.js' %}"></script>
+<script src="{% static 'build_team/build_yourself/build_yourself.js' %}"></script>
+
+{% endblock javascripts %}
